@@ -3,10 +3,7 @@
  */
 package com.test.marketplace.common.data.util;
 
-/**
- * @author fjimenez
- *
- */
+
 public enum Conditional {
 	EQUAL,
 	LIKE,

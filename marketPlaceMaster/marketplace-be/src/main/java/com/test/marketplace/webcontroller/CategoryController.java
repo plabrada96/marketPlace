@@ -16,6 +16,7 @@ import com.test.marketplace.data.Category;
 import com.test.marketplace.service.CategoryService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @Api(value = SwaggerConstants.API_VALUE_CATEGORY, tags = { SwaggerConstants.API_TAGS_CATEGORY })
@@ -26,27 +27,32 @@ public class CategoryController extends CommonController<Category>{
 	private CategoryService service;
 	
 	@Override
+	@ApiOperation(value = "${swagger.SEARCH_CATEGORY}")
 	public Category consult(@PathVariable(MappingConstants.PATH_ID) Long id) {
 		return service.consult(id);
 	}
 
 	@Override
+	@ApiOperation(value = "${swagger.SAVE_CATEGORY}")
 	public Category save(@RequestBody(required = true) Category category) {
 		return service.save(category);
 	}
 
 	@Override
+	@ApiOperation(value = "${swagger.UPDATE_CATEGORY}")
 	public Category update(@PathVariable(MappingConstants.PATH_ID) Long id, @RequestBody(required = true) Category category) {
 		category.setId(id);
 		return service.save(category);
 	}
 
 	@Override
+	@ApiOperation(value = "${swagger.DELETE_CATEGORY}")
 	public void delete( @PathVariable(MappingConstants.PATH_ID) Long id) {
 		service.delete(id);
 	}
 	
 	@GetMapping("")
+	@ApiOperation(value = "${swagger.LIST_CATEGORY}")
 	public List<Category> list() {
 		return service.list();
 	}

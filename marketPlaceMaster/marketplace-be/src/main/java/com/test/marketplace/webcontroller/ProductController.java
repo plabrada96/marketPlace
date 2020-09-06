@@ -18,6 +18,7 @@ import com.test.marketplace.data.builder.ProductBuilder;
 import com.test.marketplace.service.ProductService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @Api(value = SwaggerConstants.API_VALUE_PRODUCT, tags = { SwaggerConstants.API_TAGS_PRODUCT })
@@ -28,27 +29,32 @@ public class ProductController extends CommonController<Product>{
 	private ProductService service;
 	
 	@Override
+	@ApiOperation(value = "${swagger.SEARCH_PRODUCT}")
 	public Product consult(@PathVariable(MappingConstants.PATH_ID) Long id) {
 		return service.consult(id);
 	}
 
 	@Override
+	@ApiOperation(value = "${swagger.SAVE_PRODUCT}")
 	public Product save(@RequestBody(required = true) Product product) {
 		return service.save(product);
 	}
 
 	@Override
+	@ApiOperation(value = "${swagger.UPDATE_PRODUCT}")
 	public Product update(@PathVariable(MappingConstants.PATH_ID) Long id, @RequestBody(required = true) Product product) {
 		product.setId(id);
 		return service.save(product);
 	}
 
 	@Override
+	@ApiOperation(value = "${swagger.DELETE_PRODUCT}")
 	public void delete(@PathVariable(MappingConstants.PATH_ID) Long id) {
 		service.delete(id);
 	}
 	
 	@GetMapping("")
+	@ApiOperation(value = "${swagger.LIST_PRODUCT}")
 	public Page<Product> list(ProductBuilder productBuilder) {
 		if(productBuilder!=null) {
 			return service.list(new CommonSpecifications<Product>(productBuilder));
