@@ -1,6 +1,9 @@
 package com.test.marketplace.webcontroller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +44,11 @@ public class CategoryController extends CommonController<Category>{
 	@Override
 	public void delete( @PathVariable(MappingConstants.PATH_ID) Long id) {
 		service.delete(id);
+	}
+	
+	@GetMapping("")
+	public List<Category> list() {
+		return service.list();
 	}
 
 }

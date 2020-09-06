@@ -27,6 +27,9 @@ public class Product extends GenericEntity {
 	@Column(name = "name")
 	private String name;
 	
+	@Column(name = "price")
+	private Integer price;
+	
 	@Column(name = "status")
 	private Character status;
 	
@@ -45,6 +48,14 @@ public class Product extends GenericEntity {
 		this.category = idCategory;
 	}
 
+
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
 
 	public String getCode() {
 		return code;

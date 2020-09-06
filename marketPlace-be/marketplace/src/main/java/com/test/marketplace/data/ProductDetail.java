@@ -29,9 +29,6 @@ public class ProductDetail extends GenericEntity {
 	@Column(name = "mark")
 	private String mark;
 	
-	@Column(name = "price")
-	private Integer price;
-	
 	@Column(name = "stock")
 	private Integer stock;
 	
@@ -82,14 +79,6 @@ public class ProductDetail extends GenericEntity {
 		this.color = color;
 	}
 	
-	public Integer getPrice() {
-		return price;
-	}
-
-	public void setPrice(Integer price) {
-		this.price = price;
-	}
-
 	public Integer getStock() {
 		return stock;
 	}
