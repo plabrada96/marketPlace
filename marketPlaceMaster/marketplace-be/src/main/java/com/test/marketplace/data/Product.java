@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -33,7 +34,7 @@ public class Product extends GenericEntity {
 	@Column(name = "status")
 	private Character status;
 	
-	@Column(name = "image")
+	@Lob
 	private String image;
 	
 	public Product() {

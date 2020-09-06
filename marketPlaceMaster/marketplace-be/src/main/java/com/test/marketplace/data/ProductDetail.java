@@ -26,8 +26,8 @@ public class ProductDetail extends GenericEntity {
 	@Column(name = "brand")
 	private String brand;
 	
-	@Column(name = "mark")
-	private String mark;
+	@Column(name = "material")
+	private String material;
 	
 	@Column(name = "stock")
 	private Integer stock;
@@ -52,13 +52,15 @@ public class ProductDetail extends GenericEntity {
 
 
 
-	public String getMark() {
-		return mark;
+
+
+	public String getMaterial() {
+		return material;
 	}
 
 
-	public void setMark(String mark) {
-		this.mark = mark;
+	public void setMaterial(String material) {
+		this.material = material;
 	}
 
 

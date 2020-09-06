@@ -10,6 +10,9 @@ public class ProductBuilder extends CommonBuilder {
 	
 	@FilterUtil(field = "id",condition = Conditional.EQUAL, join = "category")
 	private Long categoryId;
+	
+	@FilterUtil(field = "name",condition = Conditional.LIKE)
+	private String name;
 
 	public Long getCategoryId() {
 		return categoryId;
@@ -19,4 +22,11 @@ public class ProductBuilder extends CommonBuilder {
 		this.categoryId = categoryId;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }
